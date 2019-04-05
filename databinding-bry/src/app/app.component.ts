@@ -7,23 +7,21 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   // title = 'databinding-bry';
-  serverElements = [];
-  @Input() newServerName  = '';
-  @Input() newServerContent = '';
+  serverElements = [{type:'server',name :'the server',content:'the content'}];
 
-  onAddServer() {
+  onAddServerAdded( ServerData: { name:string, content :string}) {
     this.serverElements.push({
       type: 'server',
-      name: this.newServerName,
-      content: this.newServerContent
+      name: ServerData.name,
+      content: ServerData.content
     });
   }
 
-  onAddBlueprint() {
-    this.serverElements.push({
+  onAddBlueprintAdded(ServerData: { name:string, content :string}) {
+     this.serverElements.push({
       type: 'blueprint',
-      name: this.newServerName,
-      content: this.newServerContent
+      name: ServerData.name,
+      content: ServerData.content
     });
   }
 }
